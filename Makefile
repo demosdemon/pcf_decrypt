@@ -21,10 +21,10 @@ clean-build:
 	rm -fr *.egg-info
 
 clean-pyc:
-	find . -name '*.pyc' -exec rm -f {} +
-	find . -name '*.pyo' -exec rm -f {} +
-	find . -name '*~' -exec rm -f {} +
-	find . -name '__pycache__' -exec rm -fr {} +
+	find . -name '*.pyc' -exec rm -fv {} +
+	find . -name '*.pyo' -exec rm -fv {} +
+	find . -name '*~' -exec rm -fv {} +
+	find . -name '__pycache__' -exec rm -frv {} +
 
 clean-test:
 	rm -fr .tox/

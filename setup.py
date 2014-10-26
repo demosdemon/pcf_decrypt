@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import sys
 
 try:
     from setuptools import setup
@@ -12,11 +12,17 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 requirements = [
-    # TODO: put package requirements here
+    'six>=1.8.0,<2.0.0',
+    'PyCrypto>=2.6.1,<2.7.0'
 ]
 
+if (
+    sys.version_info[0] == 2 and sys.version_info[1] < 7 and
+    sys.version_info[0] == 3 and sys.version_info[1] < 2
+):
+    requirements.append('argparse')
+
 test_requirements = [
-    # TODO: put package test requirements here
 ]
 
 setup(
@@ -30,17 +36,16 @@ setup(
     packages=[
         'cisco_decrypt',
     ],
-    package_dir={'cisco_decrypt':
-                 'cisco_decrypt'},
+    package_dir={'cisco_decrypt': 'cisco_decrypt'},
     include_package_data=True,
     install_requires=requirements,
-    license="BSD",
+    license="MIT",
     zip_safe=False,
     keywords='cisco_decrypt',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.6',
@@ -50,5 +55,10 @@ setup(
         'Programming Language :: Python :: 3.4',
     ],
     test_suite='tests',
-    tests_require=test_requirements
+    tests_require=test_requirements,
+    entry_points={
+        'console_scripts': [
+            'cisco_decrypt = cisco_decrypt.__main__:main'
+        ],
+    },
 )
