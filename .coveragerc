@@ -1,14 +1,6 @@
-[paths]
-source = pcf_decrypt
-
-[run]
-source = pcf_decrypt
-parallel = true
-
 [report]
 show_missing = true
 precision = 2
-omit = *migrations*
 exclude_lines =
     pragma: no cover
     def __repr__
