@@ -6,10 +6,14 @@ pcf Decrypt
     :target: http://badge.fury.io/py/pcf_decrypt
 
 .. image:: https://travis-ci.org/demosdemon/pcf_decrypt.png?branch=master
-        :target: https://travis-ci.org/demosdemon/pcf_decrypt
+    :target: https://travis-ci.org/demosdemon/pcf_decrypt
+
+.. image:: https://readthedocs.org/projects/pcf-decrypt/badge/?version=latest
+    :target: https://readthedocs.org/projects/pcf-decrypt/?badge=latest
+    :alt: Documentation Status
 
 .. image:: https://pypip.in/d/pcf_decrypt/badge.png
-        :target: https://pypi.python.org/pypi/pcf_decrypt
+    :target: https://pypi.python.org/pypi/pcf_decrypt
 
 
 Decrypt encoded passwords in pcf VPN pcf files.
