@@ -2,18 +2,18 @@
 # coding=utf-8
 
 """
-test_cisco_decrypt
+test_pcf_decrypt
 ----------------------------------
 
-Tests for `cisco_decrypt` module.
+Tests for `pcf_decrypt` module.
 """
 
 from . import os, codecs, hashlib, unittest
 
-import cisco_decrypt as m
+import pcf_decrypt as m
 
 
-class TestCiscoDecrypt(unittest.TestCase):
+class TestPcfDecrypt(unittest.TestCase):
     def test_sha1_bytes(self):
         r = os.urandom(64)
         hashlib_hash = hashlib.sha1(r).digest()
@@ -36,15 +36,15 @@ class TestCiscoDecrypt(unittest.TestCase):
         self.assertEqual(m.decrypt(enc), plaintext)
 
     def test_notvalid_type(self):
-        with self.assertRaises(m.CiscoDecryptionError):
+        with self.assertRaises(m.PcfDecryptionError):
             m.decrypt([])
 
     def test_notvalid_length(self):
-        with self.assertRaises(m.CiscoDecryptionError):
+        with self.assertRaises(m.PcfDecryptionError):
             m.decrypt(b'')
 
     def test_notvalid_checksum(self):
-        with self.assertRaises(m.CiscoDecryptionError):
+        with self.assertRaises(m.PcfDecryptionError):
             m.decrypt(os.urandom(48))
 
 if __name__ == '__main__':

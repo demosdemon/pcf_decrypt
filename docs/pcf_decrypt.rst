@@ -1,10 +1,10 @@
-cisco_decrypt package
-=====================
+pcf_decrypt package
+===================
 
 Module contents
 ---------------
 
-.. automodule:: cisco_decrypt
+.. automodule:: pcf_decrypt
     :members:
     :undoc-members:
     :show-inheritance:

@@ -4,9 +4,9 @@ Installation
 
 At the command line::
 
-    $ easy_install cisco_decrypt
+    $ easy_install pcf_decrypt
 
 Or, if you have virtualenvwrapper installed::
 
-    $ mkvirtualenv cisco_decrypt
-    $ pip install cisco_decrypt
+    $ mkvirtualenv pcf_decrypt
+    $ pip install pcf_decrypt

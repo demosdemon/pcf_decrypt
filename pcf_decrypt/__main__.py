@@ -11,7 +11,7 @@ import argparse
 
 from six import string_types, print_
 
-from . import decrypt, CiscoDecryptionError, DecodeError
+from . import decrypt, PcfDecryptionError, DecodeError
 
 
 PCF_ENCFIELD_RE = re.compile(r'^enc_([^=]+)\s*=([^$]+)$')
@@ -57,7 +57,7 @@ def run_args(args):
         for data in args.hashes:
             try:
                 print_(decrypt(data))
-            except CiscoDecryptionError as e:
+            except PcfDecryptionError as e:
                 print_(
                     'Failed to decrypt %r, %s' % (data, e.message),
                     file=sys.stderr
@@ -74,7 +74,7 @@ def run_args(args):
             for field, hexhash in (match.groups() for match in fields):
                 try:
                     plaintext = decrypt(hexhash)
-                except CiscoDecryptionError as e:
+                except PcfDecryptionError as e:
                     print_("%s:%s:Error %s" % (basename, field, e.message))
                 else:
                     print_("%s:%s:%s" % (basename, field, plaintext))
@@ -94,7 +94,7 @@ def get_args(argv=None):
         )
 
     parser = argparse.ArgumentParser(
-        prog='cisco_decrypt',
+        prog='pcf_decrypt',
         description='Decrypt encryped passwords in Cisco pcf files',
         epilog="""Arguments can either be a pcf file with at least one
         enc_FIELD field within to decrypt or an encrypted hash to decrypt. If

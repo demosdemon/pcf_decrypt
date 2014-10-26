@@ -2,6 +2,6 @@
 Usage
 ========
 
-To use Cisco Decrypt in a project::
+To use Cisco PCF Decrypt in a project::
 
-    import cisco_decrypt
+    import pcf_decrypt

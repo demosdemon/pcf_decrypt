@@ -85,17 +85,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/cisco_decrypt.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/pcf_decrypt.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/cisco_decrypt.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/pcf_decrypt.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/cisco_decrypt"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/cisco_decrypt"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/pcf_decrypt"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/pcf_decrypt"
 	@echo "# devhelp"
 
 epub:

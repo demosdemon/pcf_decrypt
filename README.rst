@@ -1,21 +1,21 @@
 ===============================
-Cisco Decrypt
+pcf Decrypt
 ===============================
 
-.. image:: https://badge.fury.io/py/cisco_decrypt.png
-    :target: http://badge.fury.io/py/cisco_decrypt
+.. image:: https://badge.fury.io/py/pcf_decrypt.png
+    :target: http://badge.fury.io/py/pcf_decrypt
 
-.. image:: https://travis-ci.org/demosdemon/cisco_decrypt.png?branch=master
-        :target: https://travis-ci.org/demosdemon/cisco_decrypt
+.. image:: https://travis-ci.org/demosdemon/pcf_decrypt.png?branch=master
+        :target: https://travis-ci.org/demosdemon/pcf_decrypt
 
-.. image:: https://pypip.in/d/cisco_decrypt/badge.png
-        :target: https://pypi.python.org/pypi/cisco_decrypt
+.. image:: https://pypip.in/d/pcf_decrypt/badge.png
+        :target: https://pypi.python.org/pypi/pcf_decrypt
 
 
-Decrypt encoded passwords in Cisco VPN pcf files.
+Decrypt encoded passwords in pcf VPN pcf files.
 
 * Free software: BSD license
-* Documentation: https://cisco_decrypt.readthedocs.org.
+* Documentation: https://pcf_decrypt.readthedocs.org.
 
 Features
 --------

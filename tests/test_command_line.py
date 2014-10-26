@@ -5,7 +5,7 @@
 test_command_line
 ----------------------------------
 
-Tests for `cisco_decrypt.__main__` module.
+Tests for `pcf_decrypt.__main__` module.
 """
 
 import sys
@@ -21,7 +21,7 @@ if PY3:
 else:
     from StringIO import StringIO
 
-import cisco_decrypt.__main__ as m
+import pcf_decrypt.__main__ as m
 
 
 class TestCommandLine(unittest.TestCase):
@@ -65,7 +65,7 @@ class TestCommandLine(unittest.TestCase):
 
     def test_help(self):
         with self.assertPrints("""
-usage: cisco_decrypt [-h] file_or_hash [file_or_hash ...]
+usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
 
 Decrypt encryped passwords in Cisco pcf files
 
@@ -86,27 +86,27 @@ presented first, followed by any files in the form: filename:FIELD:plaintext
     def test_too_few_arguments(self):
         if PY3:
             with self.assertPrints("""
-usage: cisco_decrypt [-h] file_or_hash [file_or_hash ...]
-cisco_decrypt: error: the following arguments are required: file_or_hash
+usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
+pcf_decrypt: error: the following arguments are required: file_or_hash
 """), self.assertRaises(SystemExit):
                 m.get_args([])
         else:
             with self.assertPrints("""
-usage: cisco_decrypt [-h] file_or_hash [file_or_hash ...]
-cisco_decrypt: error: too few arguments
+usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
+pcf_decrypt: error: too few arguments
 """), self.assertRaises(SystemExit):
                 m.get_args([])
 
     def test_not_valid_param(self):
         with self.assertPrints("""
-usage: cisco_decrypt [-h] file_or_hash [file_or_hash ...]
-cisco_decrypt: error: argument file_or_hash: 'test' is not a file or a hash
+usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
+pcf_decrypt: error: argument file_or_hash: 'test' is not a file or a hash
 """), self.assertRaises(SystemExit):
             m.get_args('test')
 
         with self.assertPrints("""
-usage: cisco_decrypt [-h] file_or_hash [file_or_hash ...]
-cisco_decrypt: error: argument file_or_hash: 'ab' is not a long enough hash to be an encrypted password
+usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
+pcf_decrypt: error: argument file_or_hash: 'ab' is not a long enough hash to be an encrypted password
 """), self.assertRaises(SystemExit):
             m.get_args('ab')
 

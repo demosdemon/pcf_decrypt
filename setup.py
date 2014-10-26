@@ -29,22 +29,22 @@ if (
     requirements.append('argparse')
 
 setup(
-    name='cisco_decrypt',
+    name='pcf_decrypt',
     version='0.1.0',
-    description='Decrypt encoded passwords in Cisco VPN pcf files.',
+    description='Decrypt encoded passwords in pcf VPN pcf files.',
     long_description=readme + '\n\n' + history,
     author='Joachim Brandon LeBlanc',
     author_email='demosdemon@gmail.com',
-    url='https://github.com/demosdemon/cisco_decrypt',
+    url='https://github.com/demosdemon/pcf_decrypt',
     packages=[
-        'cisco_decrypt',
+        'pcf_decrypt',
     ],
-    package_dir={'cisco_decrypt': 'cisco_decrypt'},
+    package_dir={'pcf_decrypt': 'pcf_decrypt'},
     include_package_data=True,
     install_requires=requirements,
     license="MIT",
     zip_safe=False,
-    keywords='cisco_decrypt',
+    keywords='pcf_decrypt',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -61,7 +61,7 @@ setup(
     tests_require=test_requirements,
     entry_points={
         'console_scripts': [
-            'cisco_decrypt = cisco_decrypt.__main__:main'
+            'pcf_decrypt = pcf_decrypt.__main__:main'
         ],
     },
 )
