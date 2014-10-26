@@ -80,35 +80,40 @@ decrypt or an encrypted hash to decrypt. If any hashes are present (determined
 if the operating system say it's not a path to a file and can be successfully
 decoded from a hex string to a byte array), they will be outputted in order
 presented first, followed by any files in the form: filename:FIELD:plaintext
-"""), self.assertRaises(SystemExit):
-            m.get_args('-h')
+        """):
+            with self.assertRaises(SystemExit):
+                m.get_args('-h')
 
     def test_too_few_arguments(self):
         if PY3:
             with self.assertPrints("""
 usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
 pcf_decrypt: error: the following arguments are required: file_or_hash
-"""), self.assertRaises(SystemExit):
-                m.get_args([])
+            """):
+                with self.assertRaises(SystemExit):
+                    m.get_args([])
         else:
             with self.assertPrints("""
 usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
 pcf_decrypt: error: too few arguments
-"""), self.assertRaises(SystemExit):
-                m.get_args([])
+            """):
+                with self.assertRaises(SystemExit):
+                    m.get_args([])
 
     def test_not_valid_param(self):
         with self.assertPrints("""
 usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
 pcf_decrypt: error: argument file_or_hash: 'test' is not a file or a hash
-"""), self.assertRaises(SystemExit):
-            m.get_args('test')
+        """):
+            with self.assertRaises(SystemExit):
+                m.get_args('test')
 
         with self.assertPrints("""
 usage: pcf_decrypt [-h] file_or_hash [file_or_hash ...]
 pcf_decrypt: error: argument file_or_hash: 'ab' is not a long enough hash to be an encrypted password
-"""), self.assertRaises(SystemExit):
-            m.get_args('ab')
+        """):
+            with self.assertRaises(SystemExit):
+                m.get_args('ab')
 
     def test_main(self):
         enc = "D06615FC4D2046942A6F39951FC40794740E30C485090B4416C9D5A65DE59E" \
