@@ -24,7 +24,8 @@ clean-pyc:
 	find . -name '*.pyc' -exec rm -fv {} +
 	find . -name '*.pyo' -exec rm -fv {} +
 	find . -name '*~' -exec rm -fv {} +
-	find . -name '__pycache__' -exec rm -frv {} +
+	find . -name '__pycache__' -exec rm -rfv {} +
+	find . -name '*.egg' -type d -maxdepth 1 -exec rm -rfv {} +
 
 clean-test:
 	rm -fr .tox/
