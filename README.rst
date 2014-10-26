@@ -15,8 +15,8 @@ Cisco pcf Decrypt
 .. image:: https://pypip.in/d/pcf_decrypt/badge.png
     :target: https://pypi.python.org/pypi/pcf_decrypt
 
-.. image:: https://coveralls.io/repos/demosdemon/pcf_decrypt/badge.png
-    :target: https://coveralls.io/r/demosdemon/pcf_decrypt
+.. image:: https://coveralls.io/repos/demosdemon/pcf_decrypt/badge.png?branch=master
+    :target: https://coveralls.io/r/demosdemon/pcf_decrypt?branch=master
 
 
 Decrypt encoded passwords in Cisco VPN pcf files.
