@@ -15,6 +15,9 @@ pcf Decrypt
 .. image:: https://pypip.in/d/pcf_decrypt/badge.png
     :target: https://pypi.python.org/pypi/pcf_decrypt
 
+.. image:: https://coveralls.io/repos/demosdemon/pcf_decrypt/badge.png
+    :target: https://coveralls.io/r/demosdemon/pcf_decrypt
+
 
 Decrypt encoded passwords in pcf VPN pcf files.
 
