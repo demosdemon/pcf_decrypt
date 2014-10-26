@@ -4,10 +4,12 @@ import os
 import re
 import sys
 import codecs
+import shlex
+from collections import Container
 
 import argparse
 
-from six import print_
+from six import string_types, print_
 
 from . import decrypt, CiscoDecryptionError, DecodeError
 
@@ -76,11 +78,23 @@ def run_args(args):
                     print_("%s:%s:Error %s" % (basename, field, e.message))
                 else:
                     print_("%s:%s:%s" % (basename, field, plaintext))
-    pass
 
 
-def main(argv=()):
+def get_args(argv=None):
+    if argv is None:
+        argv = sys.argv[1:]
+
+    if argv and isinstance(argv, string_types):
+        argv = shlex.split(argv)
+
+    if argv and not isinstance(argv, Container):
+        raise TypeError(
+            '%r is not a container or a string: %r'
+            % (type(argv).__name__, argv)
+        )
+
     parser = argparse.ArgumentParser(
+        prog='cisco_decrypt',
         description='Decrypt encryped passwords in Cisco pcf files',
         epilog="""Arguments can either be a pcf file with at least one
         enc_FIELD field within to decrypt or an encrypted hash to decrypt. If
@@ -99,9 +113,11 @@ def main(argv=()):
         metavar='file_or_hash'
     )
 
-    args = parser.parse_args(argv or sys.argv)
+    return parser.parse_args(argv)
 
-    run_args(args)
+
+def main(argv=None):
+    run_args(get_args(argv))
 
 if __name__ == '__main__':
     main()

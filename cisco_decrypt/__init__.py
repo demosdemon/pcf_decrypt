@@ -79,3 +79,7 @@ def decrypt(hex_or_bin):
     strip_len = plaintext[-1] if PY3 else ord(plaintext[-1])
 
     return codecs.decode(plaintext[:-strip_len], 'utf-8')
+
+if __name__ == '__main__':
+    from .__main__ import main
+    main()

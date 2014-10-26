@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 
 """
 test_cisco_decrypt
@@ -8,14 +8,7 @@ test_cisco_decrypt
 Tests for `cisco_decrypt` module.
 """
 
-import os
-import codecs
-import hashlib
-
-try:
-    import unittest2 as unittest
-except ImportError:
-    import unittest
+from . import os, codecs, hashlib, unittest
 
 import cisco_decrypt as m
 
@@ -26,21 +19,21 @@ class TestCiscoDecrypt(unittest.TestCase):
         hashlib_hash = hashlib.sha1(r).digest()
         package_hash = m._sha1(r)
 
-        self.assertEquals(hashlib_hash, package_hash)
+        self.assertEqual(hashlib_hash, package_hash)
 
     def test_sha1_hexstr(self):
         r = codecs.encode(os.urandom(64), 'hex')
         hashlib_hash = hashlib.sha1(r).digest()
         package_hash = m._sha1(r)
 
-        self.assertEquals(hashlib_hash, package_hash)
+        self.assertEqual(hashlib_hash, package_hash)
 
     def test_decrypt(self):
-        enc = "D06615FC4D2046942A6F39951FC40794740E30C485090B4416C9D5A65DE59" \
-              "E5230A63D391F2A634820B574A37E16DB23820C89CD29DA2245"
+        enc = "D06615FC4D2046942A6F39951FC40794740E30C485090B4416C9D5A65DE59E" \
+              "5230A63D391F2A634820B574A37E16DB23820C89CD29DA2245"
         plaintext = 'Sh@r3dK3ySP*&%$'
 
-        self.assertEquals(m.decrypt(enc), plaintext)
+        self.assertEqual(m.decrypt(enc), plaintext)
 
     def test_notvalid_type(self):
         with self.assertRaises(m.CiscoDecryptionError):
