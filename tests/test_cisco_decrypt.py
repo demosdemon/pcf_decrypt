@@ -10,8 +10,12 @@ Tests for `cisco_decrypt` module.
 
 import os
 import codecs
-import unittest
 import hashlib
+
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
 
 import cisco_decrypt as m
 

@@ -29,6 +29,8 @@ def _sha1(data):
         except UnicodeDecodeError:
             if PY3:
                 data = codecs.encode(codecs.decode(data, 'utf-8'), 'utf-8')
+    if isinstance(data, bytearray):
+        data = binary_type(data)
 
     return SHA.new(data).digest()
 
@@ -74,6 +76,6 @@ def decrypt(hex_or_bin):
     cipher = DES3.new(key, mode=DES3.MODE_CBC, IV=IV)
 
     plaintext = cipher.decrypt(enc_data)
-    strip_len = ord(plaintext[-1])
+    strip_len = plaintext[-1] if PY3 else ord(plaintext[-1])
 
     return codecs.decode(plaintext[:-strip_len], 'utf-8')

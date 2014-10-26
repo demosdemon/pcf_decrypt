@@ -16,14 +16,17 @@ requirements = [
     'PyCrypto>=2.6.1,<2.7.0'
 ]
 
+test_requirements = [
+]
+
+if sys.version_info[0] == 2 and sys.version_info[1] < 7:
+    test_requirements.append('unittest2')
+
 if (
     sys.version_info[0] == 2 and sys.version_info[1] < 7 and
     sys.version_info[0] == 3 and sys.version_info[1] < 2
 ):
     requirements.append('argparse')
-
-test_requirements = [
-]
 
 setup(
     name='cisco_decrypt',
