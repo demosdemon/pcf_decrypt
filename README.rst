@@ -1,5 +1,5 @@
 ===============================
-pcf Decrypt
+Cisco pcf Decrypt
 ===============================
 
 .. image:: https://badge.fury.io/py/pcf_decrypt.png
@@ -19,9 +19,9 @@ pcf Decrypt
     :target: https://coveralls.io/r/demosdemon/pcf_decrypt
 
 
-Decrypt encoded passwords in pcf VPN pcf files.
+Decrypt encoded passwords in Cisco VPN pcf files.
 
-* Free software: BSD license
+* Free software: MIT license
 * Documentation: https://pcf_decrypt.readthedocs.org.
 
 Features

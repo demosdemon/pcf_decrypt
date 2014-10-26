@@ -30,8 +30,8 @@ if (
 
 setup(
     name='pcf_decrypt',
-    version='0.1.0',
-    description='Decrypt encoded passwords in pcf VPN pcf files.',
+    version='0.1.1',
+    description='Decrypt encoded passwords in Cisco VPN pcf files.',
     long_description=readme + '\n\n' + history,
     author='Joachim Brandon LeBlanc',
     author_email='demosdemon@gmail.com',
@@ -46,8 +46,9 @@ setup(
     zip_safe=False,
     keywords='pcf_decrypt',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
+        'Intended Audience :: System Administrators',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         "Programming Language :: Python :: 2",
