@@ -9,10 +9,11 @@ Tests for `pcf_decrypt.__main__` module.
 """
 
 import sys
+import binascii
 from contextlib import contextmanager
 
 # from . import os, codecs, hashlib, unittest, m
-from . import os, codecs, unittest
+from . import os, unittest
 
 from six import PY3
 
@@ -51,7 +52,7 @@ class TestCommandLine(unittest.TestCase):
     def test_files_or_hash_hash(self):
         enc = "D06615FC4D2046942A6F39951FC40794740E30C485090B4416C9D5A65DE59" \
               "E5230A63D391F2A634820B574A37E16DB23820C89CD29DA2245"
-        data = codecs.decode(enc, 'hex')
+        data = binascii.a2b_hex(enc)
 
         self.assertEqual(m._file_or_hash(enc), ('hash', data))
 

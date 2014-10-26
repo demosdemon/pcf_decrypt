@@ -5,6 +5,7 @@ __email__ = 'demosdemon@gmail.com'
 __version__ = '0.1.0'
 
 import codecs
+import binascii
 
 from Crypto.Cipher import DES3
 from Crypto.Hash import SHA
@@ -13,7 +14,7 @@ from six import PY3, string_types, binary_type
 __all__ = ['decrypt', 'PcfDecryptionError', 'DecodeError']
 
 if PY3:
-    DecodeError = ValueError
+    DecodeError = binascii.Error
 else:
     DecodeError = TypeError
 
@@ -42,7 +43,7 @@ def decrypt(hex_or_bin):
         )
 
     try:
-        data = codecs.decode(hex_or_bin, 'hex')
+        data = binascii.a2b_hex(hex_or_bin)
     except DecodeError:
         data = hex_or_bin
     pass

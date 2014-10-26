@@ -8,7 +8,9 @@ test_pcf_decrypt
 Tests for `pcf_decrypt` module.
 """
 
-from . import os, codecs, hashlib, unittest
+from . import os, hashlib, unittest
+
+import binascii
 
 import pcf_decrypt as m
 
@@ -22,7 +24,7 @@ class TestPcfDecrypt(unittest.TestCase):
         self.assertEqual(hashlib_hash, package_hash)
 
     def test_sha1_hexstr(self):
-        r = codecs.encode(os.urandom(64), 'hex')
+        r = binascii.b2a_hex(os.urandom(64))
         hashlib_hash = hashlib.sha1(r).digest()
         package_hash = m._sha1(r)
 

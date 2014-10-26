@@ -3,8 +3,8 @@
 import os
 import re
 import sys
-import codecs
 import shlex
+import binascii
 from collections import Container
 
 import argparse
@@ -39,7 +39,7 @@ def _file_or_hash(arg):
         return ('file', os.path.realpath(arg))
 
     try:
-        data = codecs.decode(arg, 'hex')
+        data = binascii.a2b_hex(arg)
         if len(data) < 48:
             raise argparse.ArgumentTypeError(
                 '%r is not a long enough hash to be an encrypted password'
