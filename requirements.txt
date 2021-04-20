@@ -6,7 +6,7 @@ docutils==0.12
 flake8==2.2.5
 mccabe==0.2.1
 pep8==1.5.7
-py==1.4.26
+py==1.10.0
 pycrypto==2.6.1
 pyflakes==0.8.1
 six==1.8.0
